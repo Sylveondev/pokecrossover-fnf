@@ -152,8 +152,7 @@ class Note extends FlxSprite
 				case 'Alt Animation':
 					animSuffix = '-alt';
 				case 'No Animation':
-					noAnimation = true;
-					noMissAnimation = true;
+					noAnimation = noMissAnimation = true;
 				case 'GF Sing':
 					gfNote = true;
 			}
@@ -178,17 +177,6 @@ class Note extends FlxSprite
 
 		if (!inEditor && ClientPrefs.getGameplaySetting('mirrorcharts', false)) {
 			noteData = Std.parseInt(Std.string(Math.abs(Std.parseFloat(Std.string(noteData-3)))));
-			/*
-			if (noteData == 0) {
-				noteData = 3;
-			} else if (noteData == 1) {
-				noteData = 2;
-			} else if (noteData == 2) {
-				noteData = 1;
-			} else if (noteData == 3) {
-				noteData = 0;
-			}
-			*/
 		}
 
 		if (prevNote == null)
@@ -362,13 +350,6 @@ class Note extends FlxSprite
 				offsetX += lastNoteOffsetXForPixelAutoAdjusting;
 				lastNoteOffsetXForPixelAutoAdjusting = (width - 7) * (PlayState.daPixelZoom / 2);
 				offsetX -= lastNoteOffsetXForPixelAutoAdjusting;
-
-				/*if(animName != null && !animName.endsWith('end'))
-				{
-					lastScaleY /= lastNoteScaleToo;
-					lastNoteScaleToo = (6 / height);
-					lastScaleY *= lastNoteScaleToo;
-				}*/
 			}
 		} else {
 			frames = Paths.getSparrowAtlas(blahblah);

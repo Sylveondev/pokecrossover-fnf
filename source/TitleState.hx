@@ -140,7 +140,6 @@ class TitleState extends MusicBeatState
 			if(FlxG.save.data != null && FlxG.save.data.fullscreen)
 			{
 				FlxG.fullscreen = FlxG.save.data.fullscreen;
-				//trace('LOADED FULLSCREEN SETTING!!');
 			}
 			persistentUpdate = persistentDraw = true;
 		}
@@ -208,8 +207,6 @@ class TitleState extends MusicBeatState
 		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24, false);
 		logoBl.animation.play('bump');
 		logoBl.updateHitbox();
-		// logoBl.screenCenter();
-		// logoBl.color = FlxColor.BLACK;
 
 		swagShader = new ColorSwap();
 		gfDance = new FlxSprite(titleJSON.gfx, titleJSON.gfy);
@@ -248,14 +245,17 @@ class TitleState extends MusicBeatState
 		}
 		gfDance.antialiasing = ClientPrefs.globalAntialiasing;
 
+		#if (flixel_addons <= "2.11.0")
 		titlestatebg = new FlxBackdrop(Paths.image('loading'), 0.2, 0, true, true);
+		#else
+		titlestatebg = new FlxBackdrop(Paths.image('loading'), XY);
+		#end
 		titlestatebg.velocity.set(200, 110);
 		titlestatebg.updateHitbox();
 		titlestatebg.alpha = 0.5;
 		titlestatebg.screenCenter(X);
 		add(titlestatebg);
 		titlestatebg.shader = swagShader.shader;
-
 
 		add(gfDance);
 		gfDance.shader = swagShader.shader;

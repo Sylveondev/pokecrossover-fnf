@@ -39,7 +39,7 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 
 class HscriptHandler {
-    public static function setVars(interp:Interp) {
+    inline public static function setVars(interp:Interp) {
         interp.variables.set('PlayState', PlayState);
         interp.variables.set('Character', Character);
         interp.variables.set('Paths', Paths);

@@ -579,9 +579,7 @@ class PlayState extends MusicBeatState
 		}
 
 		if (isPixelStage)
-		{
 			introSoundsSuffix = '-pixel';
-		}
 
 		add(gfGroup); // Needed for blammed lights
 
@@ -634,8 +632,7 @@ class PlayState extends MusicBeatState
 					else if (file.endsWith('.hx') && !filesPushed.contains(file))
 					{
 						var exparser = new Parser();
-						exparser.allowMetadata = true;
-						exparser.allowTypes = true;
+						exparser.allowMetadata = exparser.allowTypes = true;
 						var parsedstring = exparser.parseString(File.getContent(folder + file));
 						var interp = new Interp();
 						interp = HscriptHandler.setVars(interp);

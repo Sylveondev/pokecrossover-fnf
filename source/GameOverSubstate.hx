@@ -123,9 +123,8 @@ class GameOverSubstate extends MusicBeatSubstate
 					});
 				}
 				else
-				{
 					coolStartDeath();
-				}
+
 				boyfriend.startedDeath = true;
 			}
 		}

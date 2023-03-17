@@ -21,6 +21,10 @@ class AttachedSprite extends FlxSprite
 		super();
 		if(anim != null) {
 			frames = Paths.getSparrowAtlas(file, library);
+			if (frames == null){
+				trace("Could not find animation frames for file " + file);
+				return;
+			}
 			animation.addByPrefix('idle', anim, 24, loop);
 			animation.play('idle');
 		} else if(file != null) {

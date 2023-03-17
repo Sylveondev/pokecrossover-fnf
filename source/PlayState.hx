@@ -344,6 +344,8 @@ class PlayState extends MusicBeatState
 
 	var precacheList:Map<String, String> = new Map<String, String>();
 
+	var vocalsFinished:Bool = false;
+
 	override public function create()
 	{
 		Paths.clearStoredMemory();
@@ -886,9 +888,7 @@ class PlayState extends MusicBeatState
 		opponentStrums = new FlxTypedGroup<StrumNote>();
 		playerStrums = new FlxTypedGroup<StrumNote>();
 
-		// startCountdown();
-
-		generateSong(SONG.song);
+		generateSong();
 		#if LUA_ALLOWED
 		for (notetype in noteTypeMap.keys())
 		{
@@ -944,9 +944,6 @@ class PlayState extends MusicBeatState
 		eventPushedMap.clear();
 		eventPushedMap = null;
 
-		// After all characters being loaded, it makes then invisible 0.01s later so that the player won't freeze when you change characters
-		// add(strumLine);
-
 		camFollow = new FlxPoint();
 		camFollowPos = new FlxObject(0, 0, 1, 1);
 
@@ -969,7 +966,6 @@ class PlayState extends MusicBeatState
 
 		FlxG.worldBounds.set(0, 0, FlxG.width, FlxG.height);
 
-		FlxG.fixedTimestep = false;
 		moveCameraSection();
 
 		healthBarBG = new AttachedSprite('healthBar');
@@ -1025,13 +1021,9 @@ class PlayState extends MusicBeatState
 		scoreTxt.scrollFactor.set();
 		scoreTxt.borderSize = 1.2;
 		if (!ClientPrefs.hideScoreText && !ClientPrefs.hideHud)
-		{
 			scoreTxt.visible = true;
-		}
 		else
-		{
 			scoreTxt.visible = false;
-		}
 		add(scoreTxt);
 
 		songTxt = new FlxText(12, FlxG.height - 24, 0, "", 8);
@@ -1039,13 +1031,9 @@ class PlayState extends MusicBeatState
 		songTxt.scrollFactor.set();
 		songTxt.borderSize = 1;
 		if (!ClientPrefs.hideWatermark && !ClientPrefs.hideHud)
-		{
 			songTxt.visible = true;
-		}
 		else
-		{
 			songTxt.visible = false;
-		}
 		add(songTxt);
 		songTxt.text = curSong + " (" + storyDifficultyText + ") " + "| OS " + MainMenuState.osEngineVersion;
 
@@ -2205,7 +2193,6 @@ class PlayState extends MusicBeatState
 						{
 							FlxG.sound.play(Paths.sound('introGo' + introSoundsSuffix), 0.6);
 						}
-					case 4:
 				}
 
 				notes.forEachAlive(function(note:Note)
@@ -2226,8 +2213,7 @@ class PlayState extends MusicBeatState
 
 				FlxTween.tween(laneunderlay, {alpha: ClientPrefs.underlaneVisibility}, 0.5, {ease: FlxEase.quadOut});
 				FlxTween.tween(laneunderlayOp, {alpha: ClientPrefs.opponentUnderlaneVisibility}, 0.5, {ease: FlxEase.quadOut});
-				// generateSong('fresh');
-			}, 5);
+			}, 4);
 		}
 	}
 
@@ -2357,6 +2343,7 @@ class PlayState extends MusicBeatState
 		FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), PlayState.SONG.songInstVolume, false);
 		FlxG.sound.music.onComplete = onSongComplete;
 		vocals.play();
+		vocals.onComplete = () -> vocalsFinished = true;
 
 		if (startOnTime > 0)
 		{
@@ -2399,9 +2386,8 @@ class PlayState extends MusicBeatState
 	private var noteTypeMap:Map<String, Bool> = new Map<String, Bool>();
 	private var eventPushedMap:Map<String, Bool> = new Map<String, Bool>();
 
-	private function generateSong(dataPath:String):Void
+	private function generateSong():Void
 	{
-		// FlxG.log.add(ChartParser.parse());
 		songSpeedType = ClientPrefs.getGameplaySetting('scrolltype', 'multiplicative');
 
 		switch (songSpeedType)
@@ -2432,10 +2418,6 @@ class PlayState extends MusicBeatState
 
 		// NEW SHIT
 		noteData = songData.notes;
-
-		var playerCounter:Int = 0;
-
-		var daBeats:Int = 0; // Not exactly representative of 'daBeats' lol, just how much it has looped
 
 		var songName:String = Paths.formatToSongPath(SONG.song);
 		var file:String = Paths.json(songName + '/events');
@@ -2580,7 +2562,6 @@ class PlayState extends MusicBeatState
 					noteTypeMap.set(swagNote.noteType, true);
 				}
 			}
-			daBeats += 1;
 		}
 		for (event in songData.events) // Event Notes
 		{
@@ -2598,8 +2579,6 @@ class PlayState extends MusicBeatState
 				eventPushed(subEvent);
 			}
 		}
-		// trace(unspawnNotes.length);
-		// playerCounter += 1;
 		unspawnNotes.sort(sortByShit);
 		if (eventNotes.length > 1)
 		{ // No need to sort if there's a single one or none at all
@@ -2724,7 +2703,6 @@ class PlayState extends MusicBeatState
 	{
 		for (i in 0...4)
 		{
-			// FlxG.log.add(i);
 			var targetAlpha:Float = 1;
 			if (player < 1)
 			{
@@ -2738,9 +2716,8 @@ class PlayState extends MusicBeatState
 			babyArrow.downScroll = ClientPrefs.downScroll;
 			if (!isStoryMode && !skipArrowStartTween)
 			{
-				// babyArrow.y -= 10;
 				babyArrow.alpha = 0;
-				FlxTween.tween(babyArrow, {/*y: babyArrow.y + 10,*/ alpha: targetAlpha}, 1, {ease: FlxEase.circOut, startDelay: 0.5 + (0.2 * i)});
+				FlxTween.tween(babyArrow, {alpha: targetAlpha}, 1, {ease: FlxEase.circOut, startDelay: 0.5 + (0.2 * i)});
 			}
 			else
 			{
@@ -2756,10 +2733,8 @@ class PlayState extends MusicBeatState
 				if (ClientPrefs.middleScroll)
 				{
 					babyArrow.x += 310;
-					if (i > 1)
-					{ // Up and Right
+					if (i > 1) // Up and Right
 						babyArrow.x += FlxG.width / 2 + 25;
-					}
 				}
 				opponentStrums.add(babyArrow);
 			}
@@ -2917,6 +2892,8 @@ class PlayState extends MusicBeatState
 
 		FlxG.sound.music.play();
 		Conductor.songPosition = FlxG.sound.music.time;
+		if (vocalsFinished) return;
+
 		if (Conductor.songPosition <= vocals.length)
 		{
 			vocals.time = Conductor.songPosition;
@@ -2932,10 +2909,6 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
-		/*if (FlxG.keys.justPressed.NINE)
-		{
-			iconP1.swapOldIcon();
-	}*/
 		callOnLuas('onUpdate', [elapsed]);
 		callOnHScripts('update', [elapsed]);
 

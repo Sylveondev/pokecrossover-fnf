@@ -58,9 +58,6 @@ class GameOverSubstate extends MusicBeatSubstate
 		camFollow = new FlxPoint(boyfriend.getGraphicMidpoint().x, boyfriend.getGraphicMidpoint().y);
 
 		FlxG.sound.play(Paths.sound(deathSoundName));
-		Conductor.changeBPM(100);
-		// FlxG.camera.followLerp = 1;
-		// FlxG.camera.focusOn(FlxPoint.get(FlxG.width / 2, FlxG.height / 2));
 		FlxG.camera.scroll.set();
 		FlxG.camera.target = null;
 
@@ -115,19 +112,14 @@ class GameOverSubstate extends MusicBeatSubstate
 
 			if (boyfriend.animation.curAnim.finished && !playingDeathSound)
 			{
-				if (PlayState.SONG.stage == 'tank')
+				if (PlayState.SONG.song.toLowerCase() == 'photonegative')
 				{
 					playingDeathSound = true;
 					coolStartDeath(0.2);
-					
-					var exclude:Array<Int> = [];
-					//if(!ClientPrefs.cursing) exclude = [1, 3, 8, 13, 17, 21];
 
-					FlxG.sound.play(Paths.sound('jeffGameover/jeffGameover-' + FlxG.random.int(1, 25, exclude)), 1, false, null, true, function() {
+					FlxG.sound.play(Paths.sound('mickeygameover/gameover' + FlxG.random.int(1, 5)), 1, false, null, true, () -> { 
 						if(!isEnding)
-						{
 							FlxG.sound.music.fadeIn(0.2, 1, 4);
-						}
 					});
 				}
 				else
@@ -139,17 +131,8 @@ class GameOverSubstate extends MusicBeatSubstate
 		}
 
 		if (FlxG.sound.music.playing)
-		{
 			Conductor.songPosition = FlxG.sound.music.time;
-		}
 		PlayState.instance.callOnLuas('onUpdatePost', [elapsed]);
-	}
-
-	override function beatHit()
-	{
-		super.beatHit();
-
-		//FlxG.log.add('beat');
 	}
 
 	var isEnding:Bool = false;

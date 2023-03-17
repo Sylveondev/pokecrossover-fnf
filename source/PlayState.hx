@@ -566,6 +566,7 @@ class PlayState extends MusicBeatState
 					add(stageCurtains);
 				}
 				dadbattleSmokes = new FlxSpriteGroup(); // troll'd
+
 			case 'mickeybg': // photonegative
 				var placeholder:BGSprite = new BGSprite('placeholderbg', -500, -300, 1.1, 1.1);
 				add(placeholder);

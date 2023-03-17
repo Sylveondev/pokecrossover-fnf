@@ -234,7 +234,6 @@ class ChartingState extends MusicBeatState
 				gfVersion: 'gf',
 				speed: 1,
 				stage: 'stage',
-				validScore: false,
 				disableAntiMash: false,
 				disableDebugButtons: false,
 				swapStrumLines: false
@@ -242,10 +241,6 @@ class ChartingState extends MusicBeatState
 			addSection();
 			PlayState.SONG = _song;
 		}
-
-		
-
-		// Paths.clearMemory();
 
 		#if desktop
 		// Updating Discord Rich Presence

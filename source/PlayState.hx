@@ -570,8 +570,8 @@ class PlayState extends MusicBeatState
 				dadbattleSmokes = new FlxSpriteGroup(); // troll'd
 
 			case 'mickeybg': // photonegative
-				var bg:BGSprite = new BGSprite('bgs/photonegative/office', 600, 700);
-				bg.setGraphicSize(Std.int(bg.width * 1.6));
+				var bg:BGSprite = new BGSprite('bgs/photonegative/office', 300, 250);
+				bg.setGraphicSize(Std.int(bg.width * 2.1));
 				add(bg);
 		}
 

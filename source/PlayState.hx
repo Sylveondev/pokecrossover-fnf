@@ -573,6 +573,10 @@ class PlayState extends MusicBeatState
 				var bg:BGSprite = new BGSprite('bgs/photonegative/office', 300, 250);
 				bg.setGraphicSize(Std.int(bg.width * 2.1));
 				add(bg);
+
+				// BF_Y = 800;
+				boyfriendGroup.y = BF_Y + 150;
+				opponentCameraOffset = [0, 200];
 		}
 
 		switch (Paths.formatToSongPath(SONG.song))

@@ -1,0 +1,100 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				158,
+				-17
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": false,
+			"name": "Leafeon Idle"
+		},
+		{
+			"offsets": [
+				63,
+				-22
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "cheer",
+			"loop": false,
+			"name": "Leafeon Cheer"
+		},
+		{
+			"offsets": [
+				-27,
+				-34
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "Leafeon Left"
+		},
+		{
+			"offsets": [
+				10,
+				-50
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "Leafeon Down"
+		},
+		{
+			"offsets": [
+				10,
+				-16
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP",
+			"loop": false,
+			"name": "Leafeon Up"
+		},
+		{
+			"offsets": [
+				10,
+				-20
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "Leafeon Right"
+		},
+		{
+			"offsets": [
+				27,
+				-33
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle-alt",
+			"loop": false,
+			"name": "Leafeon idle-alt"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/Leafeon",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "leafy",
+	"flip_x": false,
+	"healthbar_colors": [
+		111,
+		186,
+		133
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

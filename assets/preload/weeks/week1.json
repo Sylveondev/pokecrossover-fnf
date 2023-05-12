@@ -1,22 +1,68 @@
 {
 	"songs": [
-		["Bopeebo", "dad", [146, 113, 253]],
-		["Fresh", "dad", [146, 113, 253]],
-		["Dad Battle", "dad", [146, 113, 253]]
+		[
+			"charged",
+			"zeraora",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"spark",
+			"zeraora",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"flash-match",
+			"zeraora",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"electric-pace",
+			"zeraora",
+			[
+				146,
+				113,
+				253
+			]
+		],
+				[
+			"plasma",
+			"zeraora",
+			[
+				146,
+				113,
+				253
+			]
+		]
 	],
-
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"difficulties": "Normal, Hard",
 	"weekCharacters": [
 		"dad",
 		"bf",
 		"gf"
 	],
-	"weekBackground": "stage",
-
-	"storyName": "Daddy Dearest",
+	"storyName": "Volt week",
+	"weekName": "Zeraora",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"hideStoryMode": true,
 	"weekBefore": "tutorial",
-	"weekName": "Week 1",
-	"startUnlocked": true,
-
-	"hideStoryMode": false,
-	"hideFreeplay": false
+	"startUnlocked": true
 }

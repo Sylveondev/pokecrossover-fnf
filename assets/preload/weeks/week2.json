@@ -1,22 +1,68 @@
 {
 	"songs": [
-		["Spookeez", "spooky", [34, 51, 68]],
-		["South", "spooky", [34, 51, 68]],
-		["Monster", "monster", [34, 51, 68]]
+		[
+		    "calm-feeling",
+			"sylveon",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"fairy-fiend",
+			"sylveon",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"the-sylveon",
+			"sylveon",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"batter-up",
+			"sylveon",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"pokebattle",
+			"sylveon",
+			[
+				146,
+				113,
+				253
+			]
+		]
 	],
-
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"difficulties": "Normal, Hard",
 	"weekCharacters": [
-		"spooky",
+		"dad",
 		"bf",
 		"gf"
 	],
-	"weekBackground": "halloween",
-
-	"storyName": "Spooky Month",
-	"weekBefore": "week1",
-	"weekName": "Week 2",
-	"startUnlocked": true,
-
-	"hideStoryMode": false,
-	"hideFreeplay": false
+	"storyName": "The Sylveon",
+	"weekName": "Sylveon",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"hideStoryMode": true,
+	"weekBefore": "zeraora",
+	"startUnlocked": true
 }

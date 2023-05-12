@@ -1,22 +1,68 @@
 {
 	"songs": [
-		["Satin Panties", "mom", [252, 150, 215]],
-		["High", "mom", [252, 150, 215]],
-		["Milf", "mom", [252, 150, 215]]
+		[
+			"friendly-rap",
+			"blaze",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"blazy-style",
+			"blaze",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"poke-goof",
+			"blaze",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"metal-charge",
+			"blaze",
+			[
+				146,
+				113,
+				253
+			]
+		],
+	    [
+			"patched",
+			"blaze",
+			[
+				146,
+				113,
+				253
+			]
+		]
 	],
-	
+	"hiddenUntilUnlocked": false,
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"difficulties": "Normal, Hard",
 	"weekCharacters": [
-		"mom",
+		"dad",
 		"bf",
 		"gf"
 	],
-	"weekBackground": "limo",
-
-	"storyName": "MOMMY MUST MURDER",
-	"weekBefore": "week3",
-	"weekName": "Week 4",
-	"startUnlocked": true,
-
-	"hideStoryMode": false,
-	"hideFreeplay": false
+	"storyName": "Blaze week",
+	"weekName": "blaze",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"hideStoryMode": true,
+	"weekBefore": "leafy",
+	"startUnlocked": true
 }

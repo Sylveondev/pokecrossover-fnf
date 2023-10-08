@@ -82,8 +82,6 @@ class Main extends Sprite
 			game.width = Math.ceil(stageWidth / game.zoom);
 			game.height = Math.ceil(stageHeight / game.zoom);
 		}
-
-		flixel.FlxG.plugins.add(new flixel.addons.plugin.ScreenShotPlugin());
 	
 		ClientPrefs.loadDefaultKeys();
 		addChild(new FlxGame(game.width, game.height, game.initialState, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate, game.skipSplash, 
@@ -96,6 +94,8 @@ class Main extends Sprite
 		if(fpsVar != null) {
 			fpsVar.visible = ClientPrefs.showFPS;
 		}
+
+		flixel.FlxG.plugins.add(new flixel.addons.plugin.ScreenShotPlugin());
 
 		#if html5
 		FlxG.mouse.visible = FlxG.autoPause = false;

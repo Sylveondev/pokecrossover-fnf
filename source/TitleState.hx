@@ -540,22 +540,22 @@ class TitleState extends MusicBeatState
 				case 1:
 					FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
-					createCoolText(['OS Engine by'], 45);
+					addMoreText('Sylveondev', 45);
+					addMoreText('Discozombieaydin', 45);
+					addMoreText('Undertale57821', 45);
 				case 2:
-					addMoreText('weuz_', 45);
-					addMoreText('nelifs', 45);
-					addMoreText('Cooljer', 45);
+					addMoreText('MemeHoovy present', 45);
 				case 3:
 					deleteCoolText();
-					createCoolText(['Forked', 'from'], 15);
+					createCoolText(['Based on', 'pokemon by'], 15);
 				case 4:
-					addMoreText('Psych Engine', 45);
+					addMoreText('Nintendo', 45);
+					addMoreText('Game Freak', 45);
 				case 6:
 					deleteCoolText();
 					createCoolText(['Psych Engine by'], 45);
 					addMoreText('Shadow Mario',45);
 					addMoreText('RiverOaken',45);
-					addMoreText('bbpanzu',45);
 				case 8:
 					deleteCoolText();
 					createCoolText([curWacky[0]]);
@@ -564,11 +564,11 @@ class TitleState extends MusicBeatState
 				case 12:
 					deleteCoolText();
 				case 13:
-					addMoreText('Friday');
+					addMoreText('Friday Night Funkin');
 				case 14:
-					addMoreText('Night');
+					addMoreText('Poke');
 				case 15:
-					addMoreText('Funkin');
+					addMoreText('Crossover');
 				case 16:
 					skipIntro();
 			}

@@ -86,7 +86,7 @@ using StringTools;
 
 class PlayState extends MusicBeatState
 {
-	public static var STRUM_X = 42;
+	public static var STRUM_X = 48.5;
 	public static var STRUM_X_MIDDLESCROLL = -278;
 	public static var cameramovingoffset = 20;
 	public static var cameramovingoffsetbf = 20; // idk why i made literally same variable
@@ -136,9 +136,9 @@ class PlayState extends MusicBeatState
 	public var songSpeedType:String = "multiplicative";
 	public var noteKillOffset:Float = 350;
 
-	public var boyfriendGroup:FlxSpriteGroup;
-	public var dadGroup:FlxSpriteGroup;
-	public var gfGroup:FlxSpriteGroup;
+	public var boyfriendGroup:FlxTypedSpriteGroup<Character>;
+	public var dadGroup:FlxTypedSpriteGroup<Character>;
+	public var gfGroup:FlxTypedSpriteGroup<Character>;
 	public var shaderUpdates:Array<Float->Void> = [];
 
 	public static var curStage:String = '';
@@ -544,9 +544,25 @@ class PlayState extends MusicBeatState
 		if (girlfriendCameraOffset == null)
 			girlfriendCameraOffset = [0, 0];
 
-		boyfriendGroup = new FlxSpriteGroup(BF_X, BF_Y);
-		dadGroup = new FlxSpriteGroup(DAD_X, DAD_Y);
-		gfGroup = new FlxSpriteGroup(GF_X, GF_Y);
+		if(boyfriendGroup==null)
+			boyfriendGroup = new FlxTypedSpriteGroup(BF_X, BF_Y);
+		else{
+			boyfriendGroup.x = BF_X;
+			boyfriendGroup.y = BF_Y;
+		}
+		if(dadGroup==null)
+			dadGroup = new FlxTypedSpriteGroup(DAD_X, DAD_Y);
+		else{
+			dadGroup.x = DAD_X;
+			dadGroup.y = DAD_Y;
+		}
+
+		if(gfGroup==null)
+			gfGroup = new FlxTypedSpriteGroup(GF_X, GF_Y);
+		else{
+			gfGroup.x = GF_X;
+			gfGroup.y = GF_Y;
+		}
 
 		switch (curStage)
 		{
@@ -582,8 +598,6 @@ class PlayState extends MusicBeatState
 				bg.setGraphicSize(Std.int(bg.width * 2.1));
 				add(bg);
 
-				// BF_Y = 800;
-				boyfriendGroup.y = BF_Y + 150;
 				opponentCameraOffset = [0, 200];
 		}
 
@@ -787,6 +801,22 @@ class PlayState extends MusicBeatState
 			case 'schoolEvil':
 				var evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069); // nice
 				addBehindDad(evilTrail);
+
+			case 'mickeybg':
+				if (gfGroup != null){
+					gfGroup.remove(gf).destroy();
+					gf = null;
+				}
+
+				// this bitch doesn't wanna work when the stage is initialized so we'll have to do it this way, fuck it
+				final daBF = boyfriendGroup.members[0];
+				if (daBF.curCharacter.toLowerCase() == 'leafy'){
+					boyfriendGroup.y = BF_Y + 250;
+					daBF.scale.set(0.8, 0.8);
+					daBF.updateHitbox();
+				}
+				else
+					boyfriendGroup.y = BF_Y + 150;
 		}
 
 		var file:String = Paths.json(songName + '/dialogue'); // Checks for json/Psych Engine dialogue

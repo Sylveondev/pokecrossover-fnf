@@ -303,9 +303,7 @@ class PauseSubState extends MusicBeatSubstate
 			FlxG.resetState();
 		}
 		else
-		{
-			MusicBeatState.resetState();
-		}
+			FlxG.resetState();
 	}
 
 	override function destroy()

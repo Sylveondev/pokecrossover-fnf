@@ -808,6 +808,7 @@ class PlayState extends MusicBeatState
 					gf = null;
 				}
 
+				/*
 				// this bitch doesn't wanna work when the stage is initialized so we'll have to do it this way, fuck it
 				final daBF = boyfriendGroup.members[0];
 				if (daBF.curCharacter.toLowerCase() == 'leafy'){
@@ -816,7 +817,7 @@ class PlayState extends MusicBeatState
 					daBF.updateHitbox();
 				}
 				else
-					boyfriendGroup.y = BF_Y + 150;
+					boyfriendGroup.y = BF_Y + 150;*/
 		}
 
 		var file:String = Paths.json(songName + '/dialogue'); // Checks for json/Psych Engine dialogue

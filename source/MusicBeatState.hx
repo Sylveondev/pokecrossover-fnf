@@ -116,6 +116,7 @@ class MusicBeatState extends FlxUIState
 
 	public static function switchState(nextState:FlxState) {
 		// Custom made Trans in
+		#if (flixel < "5.6.0")
 		var curState:Dynamic = FlxG.state;
 		var leState:MusicBeatState = curState;
 		if(!FlxTransitionableState.skipNextTransIn) {
@@ -135,11 +136,38 @@ class MusicBeatState extends FlxUIState
 		}
 		FlxTransitionableState.skipNextTransIn = false;
 		FlxG.switchState(nextState);
+		#else
+		FlxTransitionableState.skipNextTransIn = false;
+		FlxG.switchState(nextState);
+		#end
 	}
 
 	public static function resetState() {
+		#if (flixel < "5.6.0")
 		MusicBeatState.switchState(FlxG.state);
+		#else
+		FlxG.resetState();
+		#end
 	}
+
+	#if (flixel >= "5.6.0")
+	// https://discord.com/channels/162395145352904705/165234904815239168/1203366108216823808
+	override function startOutro(onOutroComplete:()->Void):Void
+	{
+		if (!FlxTransitionableState.skipNextTransIn)
+		{
+			openSubState(new CustomFadeTransition(0.6, false));
+
+			CustomFadeTransition.finishCallback = onOutroComplete;
+
+			return;
+		}
+
+		FlxTransitionableState.skipNextTransIn = false;
+
+		onOutroComplete();
+	}
+	#end
 
 	public static function getState():MusicBeatState {
 		var curState:Dynamic = FlxG.state;

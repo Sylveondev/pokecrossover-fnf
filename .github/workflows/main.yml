@@ -38,8 +38,6 @@ jobs:
           haxelib install lime 8.0.2
           haxelib install openfl 9.2.2
           haxelib --never install flixel
-          haxelib run lime setup flixel
-          haxelib run lime setup
           haxelib install flixel-tools
           haxelib install flixel-ui
           haxelib install flixel-addons
@@ -78,13 +76,9 @@ jobs:
           haxelib install lime 8.0.2
           haxelib install openfl 9.2.2
           haxelib --never install flixel
-          haxelib run lime setup flixel
-          haxelib run lime setup
           haxelib install flixel-tools
           haxelib install flixel-ui
           haxelib install flixel-addons
-          haxelib install tjson
-          haxelib install hxjsonast
           haxelib install hxCodec
           haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit
           haxelib install hscript
@@ -121,13 +115,9 @@ jobs:
           haxelib install lime 8.0.2
           haxelib install openfl 9.2.2
           haxelib --never install flixel
-          haxelib run lime setup flixel
-          haxelib run lime setup
           haxelib install flixel-tools
           haxelib install flixel-ui
           haxelib install flixel-addons
-          haxelib install tjson
-          haxelib install hxjsonast
           haxelib install hxCodec
           haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit
           haxelib install hscript

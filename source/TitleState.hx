@@ -544,7 +544,7 @@ class TitleState extends MusicBeatState
 					addMoreText('Discozombieaydin', 45);
 					addMoreText('Undertale57821', 45);
 				case 2:
-					addMoreText('MemeHoovy present', 45);
+					addMoreText('Moxie present', 45);
 				case 3:
 					deleteCoolText();
 					createCoolText(['Based on', 'pokemon by'], 15);

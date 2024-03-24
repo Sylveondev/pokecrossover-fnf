@@ -598,7 +598,7 @@ class PlayState extends MusicBeatState
 				bg.setGraphicSize(Std.int(bg.width * 2.1));
 				add(bg);
 
-				opponentCameraOffset = [0, 200];
+				//opponentCameraOffset = [0, 200];
 		}
 
 		switch (Paths.formatToSongPath(SONG.song))
@@ -803,10 +803,21 @@ class PlayState extends MusicBeatState
 				addBehindDad(evilTrail);
 
 			case 'mickeybg':
+				// To whoever did this is, hit me up.
+				// This code makes me horny. :3
+				if (gfGroup != null){
+					//gf:Std.int(bg.width * 0.6);
+				}
+				
+				
+				/*
+				// Moxie you're not thanos lol, can't delete your own gf lol :smirk:
+
 				if (gfGroup != null){
 					gfGroup.remove(gf).destroy();
 					gf = null;
 				}
+				*/
 
 				/*
 				// this bitch doesn't wanna work when the stage is initialized so we'll have to do it this way, fuck it

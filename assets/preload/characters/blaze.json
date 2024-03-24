@@ -1,0 +1,122 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "danceLeft",
+			"fps": 24,
+			"name": "Blaze Idle",
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			]
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "danceRight",
+			"fps": 24,
+			"name": "Blaze Idle",
+			"indices": [
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29,
+				30
+			]
+		},
+		{
+			"loop": false,
+			"offsets": [
+				7,
+				3
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Blaze Left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-26,
+				-58
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "Blaze Down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				2,
+				46
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "Blaze Up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-86,
+				-39
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Blaze Right",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/Blaze",
+	"position": [
+		0,
+		220
+	],
+	"healthicon": "blaze",
+	"flip_x": false,
+	"healthbar_colors": [
+		225,
+		145,
+		91
+	],
+	"camera_position": [
+		0,
+		50
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}
